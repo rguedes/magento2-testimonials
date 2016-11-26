@@ -1,0 +1,19 @@
+<?php
+ /*
+ * @var $block \Credevlabz\Testimonials\Block\TestimonialsWidget
+ * @package Credevlabz/Testimonials
+ * @author Aman Srivastava <http://amansrivastava.in>
+ */ 
+?>
+
+<h1><?php echo __('Testimonials') ?></h1>
+<div class="row testimonials-post-list">
+<?php /** @var $testimonial \Credevlabz\Testimonials\Model\Testimonial */ ?>
+<?php foreach ($block->getTestimonials() as $testimonial): ?>
+    <div class="container testimonial-list-item well">
+        <h4 class="testimonial-item-content">
+            <?php echo $testimonial->getContent(); ?>
+        </h4>
+    </div>
+<?php endforeach; ?>
+</div>

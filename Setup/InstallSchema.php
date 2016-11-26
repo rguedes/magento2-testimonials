@@ -38,8 +38,9 @@ class InstallSchema implements InstallSchemaInterface
                 'Testimonial ID'
             )
             ->addColumn('name', Table::TYPE_TEXT, 150, ['nullable' => false], 'User\'s name')
-            ->addColumn('email', Table::TYPE_TEXT, 150, ['nullable' => false], 'User\'s email')
+            ->addColumn('email', Table::TYPE_TEXT, 150, ['nullable' => true], 'User\'s email')
             ->addColumn('content', Table::TYPE_TEXT, '2M', [], 'Testimonial Content')
+            ->addColumn('image', Table::TYPE_TEXT, '2M', [], 'Clients Image')
             ->addColumn('is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '1'], 'Is Active?')
             ->addColumn('creation_time', Table::TYPE_DATETIME, null, ['nullable' => false], 'Creation Time')
             ->addColumn('update_time', Table::TYPE_DATETIME, null, ['nullable' => false], 'Update Time')

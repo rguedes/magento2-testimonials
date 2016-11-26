@@ -2,8 +2,18 @@
 	"name": "credevlabz/magento2-testimonials",
 	"description": "Magento2 module for testimonials.",
 	"type": "magento2-module",
-	"author": "Aman Srivastava <http://amansrivastava.in>",
-	"version": "1.0.1",
+    "authors": [
+        {
+            "name": "Aman Srivastava",
+            "homepage": "http://amansrivastava.in"
+        },
+        {
+            "name": "Rolando Guedes",
+            "email": "rolandoguedes@gmail.com",
+            "homepage": "http://www.rolandoguedes.com"
+        }
+    ],
+	"version": "1.0.2",
 	"license": [
 		"OSL-3.0",
 		"AFL-3.0"

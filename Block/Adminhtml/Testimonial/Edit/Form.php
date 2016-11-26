@@ -109,6 +109,17 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         }
 
         $fieldset->addField(
+            'image',
+            'image',
+            [
+                'title' => __('Image'),
+                'label' => __('Image'),
+                'name' => 'image',
+                'note' => 'Allow image type: jpg, jpeg, gif, png',
+            ]
+        );
+
+        $fieldset->addField(
             'content',
             'editor',
             [

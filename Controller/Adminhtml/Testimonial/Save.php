@@ -15,10 +15,33 @@ class Save extends \Magento\Backend\App\Action
 {
 
     /**
+     * @var \Magento\Framework\Image\AdapterFactory
+     */
+    protected $adapterFactory;
+    /**
+     * @var \Magento\MediaStorage\Model\File\UploaderFactory
+     */
+    protected $uploader;
+    /**
+     * @var \Magento\Framework\Filesystem
+     */
+    protected $filesystem;
+
+    /**
+     * @var \Magento\Framework\Stdlib\DateTime\TimezoneInterface
+     */
+    protected $timezoneInterface;
+
+    /**
      * @param Action\Context $context
      */
-    public function __construct(Action\Context $context)
+    public function __construct(Action\Context $context, \Magento\Framework\Image\AdapterFactory $adapterFactory,
+                                \Magento\MediaStorage\Model\File\UploaderFactory $uploader,
+                                \Magento\Framework\Filesystem $filesystem)
     {
+        $this->adapterFactory = $adapterFactory;
+        $this->uploader = $uploader;
+        $this->filesystem = $filesystem;
         parent::__construct($context);
     }
 
@@ -48,6 +71,46 @@ class Save extends \Magento\Backend\App\Action
             if ($id) {
                 $model->load($id);
             }
+
+            //start block upload image
+            if (isset($_FILES['image']) && isset($_FILES['image']['name']) && strlen($_FILES['image']['name'])) {
+                /*
+                * Save image upload
+                */
+                try {
+                    $base_media_path = 'credevlabz/testimonials/images';
+                    $uploader = $this->uploader->create(
+                        ['fileId' => 'image']
+                    );
+                    $uploader->setAllowedExtensions(['jpg', 'jpeg', 'gif', 'png']);
+                    $imageAdapter = $this->adapterFactory->create();
+                    $uploader->addValidateCallback('image', $imageAdapter, 'validateUploadFile');
+                    $uploader->setAllowRenameFiles(true);
+                    $uploader->setFilesDispersion(true);
+                    $mediaDirectory = $this->filesystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA);
+                    $result = $uploader->save(
+                        $mediaDirectory->getAbsolutePath(base_media_path)
+                    );
+                    $data['image'] = base_media_path.$result['file'];
+                } catch (\Exception $e) {
+                    if ($e->getCode() == 0) {
+                        $this->messageManager->addError($e->getMessage());
+                    }
+                }
+            } else {
+                if (isset($data['image']) && isset($data['image']['value'])) {
+                    if (isset($data['image']['delete'])) {
+                        $data['image'] = null;
+                        $data['delete_image'] = true;
+                    } elseif (isset($data['image']['value'])) {
+                        $data['image'] = $data['image']['value'];
+                    } else {
+                        $data['image'] = null;
+                    }
+                }
+            }
+            //end block upload image
+
 
             $model->setData($data);
 
