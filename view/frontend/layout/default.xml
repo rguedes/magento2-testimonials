@@ -10,7 +10,7 @@
         <referenceContainer name="after.body.start">
             <block class="Credevlabz\Testimonials\Block\TestimonialsWidget" size="3" name="testimonials.list" template="Credevlabz_Testimonials::widget.phtml" >
                 <arguments>
-                    <argument name="size" xsi:type="numeric">3</argument>
+                    <argument name="size" xsi:type="string">3</argument>
                 </arguments>
             </block>>
         </referenceContainer>
