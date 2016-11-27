@@ -49,6 +49,7 @@ class TestimonialsWidget extends \Magento\Framework\View\Element\Template implem
             $testimonials = $this->_testimonialCollectionFactory
                 ->create()
                 ->addFilter('is_active', 1)
+                ->addFilter('show_homepage', 1)
                 ->setPageSize($this->_pageSize)
                 ->addOrder(
                     TestimonialInterface::CREATION_TIME,
