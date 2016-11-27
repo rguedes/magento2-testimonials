@@ -46,7 +46,7 @@ class TestimonialsList extends \Magento\Framework\View\Element\Template implemen
                 ->addFilter('is_active', 1)
                 ->addOrder(
                     TestimonialInterface::CREATION_TIME,
-                    TestimonialCollection::SORT_ORDER_DESC
+                    TestimonialCollection::SORT_ORDER_ASC
                 );
             $this->setData('testimonials', $testimonials);
         }
