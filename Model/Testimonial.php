@@ -161,14 +161,14 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
     }
 
     /**
-     * Set email
+     * Set title
      *
-     * @param string $email
+     * @param string $title
      * @return \Credevlabz\Testimonials\Api\Data\TestimonialInterface
      */
-    public function setEmail($email)
+    public function setTitle($title)
     {
-        return $this->setData(self::EMAIL, $email);
+        return $this->setData(self::TITLE, $title);
     }
 
     /**

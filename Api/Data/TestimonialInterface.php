@@ -37,11 +37,11 @@ interface TestimonialInterface
     public function getName();
 
     /**
-     * Get email
+     * Get title
      *
      * @return string|null
      */
-    public function getEmail();
+    public function getTitle();
 
     /**
      * Get content
@@ -88,12 +88,12 @@ interface TestimonialInterface
     public function setName($name);
 
     /**
-     * Set email
+     * Set title
      *
-     * @param string $email
+     * @param string $title
      * @return \Credevlabz\Testimonials\Api\Data\TestimonialInterface
      */
-    public function setEmail($email);
+    public function setTitle($title);
 
     /**
      * Set content
