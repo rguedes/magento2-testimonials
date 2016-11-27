@@ -43,6 +43,7 @@ class InstallSchema implements InstallSchemaInterface
             ->addColumn('image', Table::TYPE_TEXT, '2M', [], 'Testimonial Image')
             ->addColumn('cover_image', Table::TYPE_TEXT, '2M', [], 'Testimonial Cover Image')
             ->addColumn('is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '1'], 'Is Active?')
+            ->addColumn('show_homepage', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '1'], 'Show in homepage?')
             ->addColumn('creation_time', Table::TYPE_DATETIME, null, ['nullable' => false], 'Creation Time')
             ->addColumn('update_time', Table::TYPE_DATETIME, null, ['nullable' => false], 'Update Time')
             ->setComment('Testimonials');

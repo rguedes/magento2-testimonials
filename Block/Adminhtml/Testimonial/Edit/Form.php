@@ -109,6 +109,21 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         }
 
         $fieldset->addField(
+            'show_homepage',
+            'select',
+            [
+                'label' => __('Show in Homepage'),
+                'title' => __('Show in Homepage'),
+                'name' => 'show_homepage',
+                'required' => true,
+                'options' => ['1' => __('Enabled'), '0' => __('Disabled')]
+            ]
+        );
+        if (!$model->getId()) {
+            $model->setData('show_homepage', '1');
+        }
+
+        $fieldset->addField(
             'image',
             'image',
             [
