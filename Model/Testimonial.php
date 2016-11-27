@@ -89,13 +89,13 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
     }
 
     /**
-     * Get email
+     * Get title
      *
      * @return string|null
      */
-    public function getEmail()
+    public function getTitle()
     {
-        return $this->getData(self::EMAIL);
+        return $this->getData(self::TITLE);
     }
 
     /**

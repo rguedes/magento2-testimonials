@@ -16,7 +16,7 @@ interface TestimonialInterface
      */
     const TESTIMONIAL_ID = 'testimonial_id';
     const NAME         = 'name';
-    const EMAIL         = 'email';
+    const TITLE         = 'title';
     const CONTENT       = 'content';
     const CREATION_TIME = 'creation_time';
     const UPDATE_TIME   = 'update_time';
