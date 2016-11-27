@@ -93,7 +93,7 @@ class Save extends \Magento\Backend\App\Action
                     $result = $uploader->save(
                         $mediaDirectory->getAbsolutePath($base_media_path)
                     );
-                    $data['image'] = $base_media_path.$result['file'];
+                    $data['image'] = $base_media_path."/".$result['file'];
                 } catch (\Exception $e) {
                     if ($e->getCode() == 0) {
                         $this->messageManager->addError($e->getMessage());
