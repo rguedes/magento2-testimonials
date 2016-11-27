@@ -79,7 +79,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         $fieldset->addField(
             'name',
             'text',
-            ['name' => 'name', 'label' => __('Name'), 'title' => __('Name'), 'required' => true]
+            ['name' => 'name', 'label' => __('Name'), 'title' => __('Name'), 'required' => false]
         );
 
         $fieldset->addField(
@@ -116,7 +116,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                 'label' => __('Image'),
                 'name' => 'image',
                 'note' => 'Allow image type: jpg, jpeg, gif, png',
-                'required' => true
+                'required' => false
 
             ]
         );
@@ -129,7 +129,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                 'label' => __('Cover Image'),
                 'name' => 'cover_image',
                 'note' => 'Allow image type: jpg, jpeg, gif, png',
-                'required' => true
+                'required' => false
             ]
         );
 
