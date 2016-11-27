@@ -7,12 +7,12 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="after.body.start">
+        <!--<referenceContainer name="after.body.start">
             <block class="Credevlabz\Testimonials\Block\TestimonialsWidget" size="3" name="testimonials.list" template="Credevlabz_Testimonials::widget.phtml" >
                 <arguments>
-                    <argument name="size" xsi:type="numeric">3</argument>
+                    <argument name="size" xsi:type="string">3</argument>
                 </arguments>
             </block>>
-        </referenceContainer>
+        </referenceContainer>-->
     </body>
 </page>
