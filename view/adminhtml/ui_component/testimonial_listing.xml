@@ -137,14 +137,6 @@
                     </item>
                 </argument>
             </filterInput>
-            <filterInput name="email">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="dataScope" xsi:type="string">email</item>
-                        <item name="label" xsi:type="string" translate="true">Email</item>
-                    </item>
-                </argument>
-            </filterInput>
             <filterSelect name="is_active">
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">

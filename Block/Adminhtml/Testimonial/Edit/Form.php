@@ -127,7 +127,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
             [
                 'title' => __('Cover Image'),
                 'label' => __('Cover Image'),
-                'name' => 'image',
+                'name' => 'cover_image',
                 'note' => 'Allow image type: jpg, jpeg, gif, png',
                 'required' => true
             ]
