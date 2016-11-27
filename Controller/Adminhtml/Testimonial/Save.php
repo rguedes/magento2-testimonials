@@ -89,9 +89,9 @@ class Save extends \Magento\Backend\App\Action
                     $uploader->setFilesDispersion(true);
                     $mediaDirectory = $this->filesystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA);
                     $result = $uploader->save(
-                        $mediaDirectory->getAbsolutePath(base_media_path)
+                        $mediaDirectory->getAbsolutePath($base_media_path)
                     );
-                    $data['image'] = base_media_path.$result['file'];
+                    $data['image'] = $base_media_path.$result['file'];
                 } catch (\Exception $e) {
                     if ($e->getCode() == 0) {
                         $this->messageManager->addError($e->getMessage());
