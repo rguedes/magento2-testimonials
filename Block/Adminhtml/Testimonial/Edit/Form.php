@@ -82,16 +82,16 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
             ['name' => 'name', 'label' => __('Name'), 'title' => __('Name'), 'required' => true]
         );
 
-        /*$fieldset->addField(
-            'email',
+        $fieldset->addField(
+            'title',
             'text',
             [
-                'name' => 'email',
-                'label' => __('Email'),
-                'title' => __('Email'),
+                'name' => 'title',
+                'label' => __('Title'),
+                'title' => __('Title'),
                 'required' => true
             ]
-        );*/
+        );
 
         $fieldset->addField(
             'is_active',
@@ -118,6 +118,18 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                 'note' => 'Allow image type: jpg, jpeg, gif, png',
                 'required' => true
 
+            ]
+        );
+
+        $fieldset->addField(
+            'cover_image',
+            'image',
+            [
+                'title' => __('Cover Image'),
+                'label' => __('Cover Image'),
+                'name' => 'image',
+                'note' => 'Allow image type: jpg, jpeg, gif, png',
+                'required' => true
             ]
         );
 

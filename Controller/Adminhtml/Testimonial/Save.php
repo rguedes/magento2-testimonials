@@ -73,7 +73,6 @@ class Save extends \Magento\Backend\App\Action
             }
 
             $files = $this->getRequest()->getFiles('image');
-
             //start block upload image
             if (isset($files) && isset($files['name']) && strlen($files['name'])) {
                 /*
@@ -108,6 +107,46 @@ class Save extends \Magento\Backend\App\Action
                         $data['image'] = $data['image']['value'];
                     } else {
                         $data['image'] = null;
+                    }
+                }
+            }
+            //end block upload image
+            //
+            $cover_image = $this->getRequest()->getFiles('cover_image');
+            //start block upload image
+            if (isset($cover_image) && isset($cover_image['name']) && strlen($cover_image['name'])) {
+                /*
+                * Save image upload
+                */
+                try {
+                    $base_media_path = 'testimonials';
+                    $uploader = $this->uploader->create(
+                        ['fileId' => 'cover_image']
+                    );
+                    $uploader->setAllowedExtensions(['jpg', 'jpeg', 'gif', 'png']);
+                    $imageAdapter = $this->adapterFactory->create();
+                    $uploader->addValidateCallback('image', $imageAdapter, 'validateUploadFile');
+                    $uploader->setAllowRenameFiles(true);
+                    $uploader->setFilesDispersion(false);
+                    $mediaDirectory = $this->filesystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA);
+                    $result = $uploader->save(
+                        $mediaDirectory->getAbsolutePath($base_media_path)
+                    );
+                    $data['cover_image'] = $base_media_path."/".$result['file'];
+                } catch (\Exception $e) {
+                    if ($e->getCode() == 0) {
+                        $this->messageManager->addError($e->getMessage());
+                    }
+                }
+            } else {
+                if (isset($data['cover_image']) && isset($data['cover_image']['value'])) {
+                    if (isset($data['cover_image']['delete'])) {
+                        $data['cover_image'] = null;
+                        $data['delete_cover_image'] = true;
+                    } elseif (isset($data['cover_image']['value'])) {
+                        $data['cover_image'] = $data['cover_image']['value'];
+                    } else {
+                        $data['cover_image'] = null;
                     }
                 }
             }
