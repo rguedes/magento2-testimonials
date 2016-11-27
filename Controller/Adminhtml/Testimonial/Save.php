@@ -72,13 +72,15 @@ class Save extends \Magento\Backend\App\Action
                 $model->load($id);
             }
 
+            $files = $this->getRequest()->getFiles('image');
+
             //start block upload image
-            if (isset($_FILES['image']) && isset($_FILES['image']['name']) && strlen($_FILES['image']['name'])) {
+            if (isset($files) && isset($files['name']) && strlen($files['name'])) {
                 /*
                 * Save image upload
                 */
                 try {
-                    $base_media_path = 'credevlabz/testimonials/images';
+                    $base_media_path = 'testimonials';
                     $uploader = $this->uploader->create(
                         ['fileId' => 'image']
                     );
@@ -86,7 +88,7 @@ class Save extends \Magento\Backend\App\Action
                     $imageAdapter = $this->adapterFactory->create();
                     $uploader->addValidateCallback('image', $imageAdapter, 'validateUploadFile');
                     $uploader->setAllowRenameFiles(true);
-                    $uploader->setFilesDispersion(true);
+                    $uploader->setFilesDispersion(false);
                     $mediaDirectory = $this->filesystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA);
                     $result = $uploader->save(
                         $mediaDirectory->getAbsolutePath($base_media_path)
