@@ -53,7 +53,7 @@ class TestimonialsWidget extends \Magento\Framework\View\Element\Template implem
                 ->setPageSize($this->_pageSize)
                 ->addOrder(
                     TestimonialInterface::CREATION_TIME,
-                    TestimonialCollection::SORT_ORDER_DESC
+                    TestimonialCollection::SORT_ORDER_ASC
                 );
             $this->setData('testimonials', $testimonials);
         }
